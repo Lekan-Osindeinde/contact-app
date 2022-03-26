@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { uuid } from "uuidv4";
 import AddContact from "./AddContact";
 import "./App.css";
 import ContactList from "./ContactList";
 import Header from "./Header";
+
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
   const addContactHandler = (contact) => {
     console.log(contacts);
-    setContacts([...contacts, { id: uuid(), ...contacts }]);
+    setContacts([...contacts, contact]);
   };
   useEffect(() => {
     const retrieveContacts = JSON.parse(
